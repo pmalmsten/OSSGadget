@@ -1,24 +1,24 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using Microsoft.CST.OpenSource.Health;
-using Microsoft.CST.OpenSource.Shared;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using static Microsoft.CST.OpenSource.Shared.OutputBuilderFactory;
 
 namespace Microsoft.CST.OpenSource
 {
+    using CommandLine;
+    using CommandLine.Text;
     using Contracts;
-    using Microsoft.CST.OpenSource.PackageManagers;
+    using Health;
+    using PackageManagers;
     using PackageUrl;
+    using Shared;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class HealthTool : OSSGadget
     {
         
-        public HealthTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public HealthTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

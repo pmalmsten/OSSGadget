@@ -1,19 +1,19 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using Microsoft.CST.RecursiveExtractor;
-using MimeTypes;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
 namespace Microsoft.CST.OpenSource
 {
+    using Contracts;
+    using MimeTypes;
     using PackageManagers;
     using PackageUrl;
+    using RecursiveExtractor;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
 
     public class DefoggerTool : OSSGadget
     {
@@ -361,7 +361,7 @@ namespace Microsoft.CST.OpenSource
         /// <summary>
         /// Initializes a new DefoggerTool instance.
         /// </summary>
-        public DefoggerTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public DefoggerTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
             Findings = new List<EncodedString>();
             BinaryFindings = new List<EncodedBinary>();

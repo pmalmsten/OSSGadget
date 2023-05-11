@@ -1,16 +1,16 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Microsoft.CST.OpenSource
 {
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
     using PackageManagers;
     using PackageUrl;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class DownloadTool : OSSGadget
     {
@@ -56,7 +56,7 @@ namespace Microsoft.CST.OpenSource
             public bool UseCache { get; set; }
         }
 
-        public DownloadTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public DownloadTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

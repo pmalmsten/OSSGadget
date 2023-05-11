@@ -2,19 +2,20 @@
 
 namespace Microsoft.CST.OpenSource.FindSquats
 {
+    using CodeAnalysis.Sarif;
     using CommandLine;
     using CommandLine.Text;
-    using Microsoft.CodeAnalysis.Sarif;
-    using Microsoft.CST.OpenSource.Shared;
+    using Contracts;
     using Mutators;
     using Newtonsoft.Json;
     using PackageManagers;
     using PackageUrl;
+    using Shared;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using SarifResult = Microsoft.CodeAnalysis.Sarif.Result;
+    using SarifResult = CodeAnalysis.Sarif.Result;
 
     public class FindSquatsTool : OSSGadget
     {
@@ -52,7 +53,7 @@ namespace Microsoft.CST.OpenSource.FindSquats
 
         }
 
-        public FindSquatsTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public FindSquatsTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

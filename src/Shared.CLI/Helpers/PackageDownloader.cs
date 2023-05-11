@@ -4,8 +4,8 @@ namespace Microsoft.CST.OpenSource
 {
     using Contracts;
     using Extensions;
-    using Microsoft.CST.OpenSource.Helpers;
-    using Microsoft.CST.OpenSource.PackageManagers;
+    using Helpers;
+    using PackageManagers;
     using PackageUrl;
     using System;
     using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace Microsoft.CST.OpenSource
         /// <param name="projectManagerFactory">The <see cref="ProjectManagerFactory"/> to use to get the project managers.</param>
         /// <param name="destinationDir">The directory where the package needs to be downloaded to.</param>
         /// <param name="doCaching">Check and use the cache if it exists - create if not.</param>
-        public PackageDownloader(PackageURL purl, ProjectManagerFactory projectManagerFactory, string? destinationDir = null, bool doCaching = false)
+        public PackageDownloader(PackageURL purl, IProjectManagerFactory projectManagerFactory, string? destinationDir = null, bool doCaching = false)
         {
             if (purl == null)
             {

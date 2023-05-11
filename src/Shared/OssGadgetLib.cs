@@ -2,9 +2,9 @@
 
 namespace Microsoft.CST.OpenSource
 {
+    using Contracts;
     using Helpers;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Http;
     using PackageManagers;
     using System;
     using System.Net.Http;
@@ -17,7 +17,7 @@ namespace Microsoft.CST.OpenSource
         /// <summary>
         /// The <see cref="ProjectManagerFactory"/> to be used by classes that implement <see cref="OssGadgetLib"/>.
         /// </summary>
-        protected ProjectManagerFactory ProjectManagerFactory { get; }
+        protected IProjectManagerFactory ProjectManagerFactory { get; }
 
         /// <summary>
         /// The <see cref="NLog.ILogger"/> for this class.
@@ -30,7 +30,7 @@ namespace Microsoft.CST.OpenSource
         /// </summary>
         protected string Directory { get; }
 
-        protected OssGadgetLib(ProjectManagerFactory projectManagerFactory, string directory = ".")
+        protected OssGadgetLib(IProjectManagerFactory projectManagerFactory, string directory = ".")
         {
             ProjectManagerFactory = Check.NotNull(nameof(projectManagerFactory), projectManagerFactory);
             Directory = directory;

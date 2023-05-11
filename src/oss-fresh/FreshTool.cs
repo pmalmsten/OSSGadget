@@ -1,28 +1,23 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using Microsoft.CodeAnalysis.Sarif;
-using Microsoft.CST.OpenSource.Shared;
-using NLog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SemanticVersioning;
-using static Microsoft.CST.OpenSource.Shared.OutputBuilderFactory;
-
 namespace Microsoft.CST.OpenSource
 {
-    using AngleSharp;
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
     using PackageManagers;
     using PackageUrl;
+    using Shared;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Text.Json;
     using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
 
     public class FreshTool : OSSGadget
     {
-        public FreshTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public FreshTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

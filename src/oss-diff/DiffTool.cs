@@ -1,29 +1,29 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommandLine;
-using CommandLine.Text;
-using DiffPlex.DiffBuilder;
-using DiffPlex.DiffBuilder.Model;
-using Microsoft.CodeAnalysis.Sarif;
-using Microsoft.CST.OpenSource.Shared;
-using Microsoft.CST.RecursiveExtractor;
-using Pastel;
 using SarifResult = Microsoft.CodeAnalysis.Sarif.Result;
 
 namespace Microsoft.CST.OpenSource.DiffTool
 {
+    using CodeAnalysis.Sarif;
+    using CommandLine;
+    using CommandLine.Text;
     using Contracts;
-    using Microsoft.CST.OpenSource.Helpers;
-    using Microsoft.CST.OpenSource.PackageManagers;
+    using DiffPlex.DiffBuilder;
+    using DiffPlex.DiffBuilder.Model;
+    using Helpers;
+    using PackageManagers;
     using PackageUrl;
+    using Pastel;
+    using RecursiveExtractor;
+    using Shared;
+    using System;
+    using System.Collections.Concurrent;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
     class DiffTool : OSSGadget
     {
@@ -85,7 +85,7 @@ namespace Microsoft.CST.OpenSource.DiffTool
             public IEnumerable<string> Targets { get; set; } = Array.Empty<string>();
         }
 
-        public DiffTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public DiffTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

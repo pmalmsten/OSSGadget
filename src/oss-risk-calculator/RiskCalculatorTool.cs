@@ -1,24 +1,25 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using NLog;
-using CommandLine;
-using CommandLine.Text;
-using Microsoft.ApplicationInspector.Commands;
-using Microsoft.CodeAnalysis.Sarif;
-using Microsoft.CST.OpenSource.Health;
-using Microsoft.CST.OpenSource.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static Microsoft.CST.OpenSource.Shared.OutputBuilderFactory;
 using SarifResult = Microsoft.CodeAnalysis.Sarif.Result;
-using Microsoft.ApplicationInspector.RulesEngine;
 
 namespace Microsoft.CST.OpenSource
 {
+    using ApplicationInspector.Commands;
+    using ApplicationInspector.RulesEngine;
+    using CodeAnalysis.Sarif;
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
+    using Health;
+    using NLog;
     using PackageManagers;
     using PackageUrl;
+    using Shared;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class RiskCalculatorTool : OSSGadget
     {
@@ -67,7 +68,7 @@ namespace Microsoft.CST.OpenSource
             public bool UseCache { get; set; }
         }
 
-        public RiskCalculatorTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public RiskCalculatorTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

@@ -1,19 +1,20 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using Microsoft.ApplicationInspector.Commands;
-using Microsoft.ApplicationInspector.RulesEngine;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using static Crayon.Output;
 
 namespace Microsoft.CST.OpenSource
 {
+    using ApplicationInspector.Commands;
+    using ApplicationInspector.RulesEngine;
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
     using PackageManagers;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class DetectBackdoorTool : OSSGadget
     {
@@ -51,7 +52,7 @@ namespace Microsoft.CST.OpenSource
             public bool UseCache { get; set; }
         }
 
-        public DetectBackdoorTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public DetectBackdoorTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
             RULE_DIRECTORY = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "BackdoorRules");
         }

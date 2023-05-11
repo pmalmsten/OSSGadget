@@ -1,20 +1,18 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text.Json;
-using DevLab.JmesPath;
-
 namespace Microsoft.CST.OpenSource
 {
-    using Microsoft.CST.OpenSource.Model;
-    using Microsoft.CST.OpenSource.PackageManagers;
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
+    using DevLab.JmesPath;
+    using PackageManagers;
     using PackageUrl;
-    using System.IO;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text.Json;
+    using System.Threading.Tasks;
 
     public class MetadataTool : OSSGadget
     {
@@ -54,7 +52,7 @@ namespace Microsoft.CST.OpenSource
         }
         private bool _ShowError = false;
 
-        public MetadataTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public MetadataTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

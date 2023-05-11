@@ -1,22 +1,23 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using DiffPlex.DiffBuilder.Model;
-using Microsoft.CST.OpenSource.Reproducibility;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using static Crayon.Output;
 
 namespace Microsoft.CST.OpenSource
 {
-    using Microsoft.CST.OpenSource.Helpers;
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
+    using DiffPlex.DiffBuilder.Model;
+    using Helpers;
     using PackageManagers;
     using PackageUrl;
+    using Reproducibility;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Threading.Tasks;
 
     public enum DiffTechnique
     {
@@ -74,7 +75,7 @@ namespace Microsoft.CST.OpenSource
             public bool LeaveIntermediateFiles { get; set; }
         }
 
-        public ReproducibleTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public ReproducibleTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

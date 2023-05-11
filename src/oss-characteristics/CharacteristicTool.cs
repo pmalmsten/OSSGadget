@@ -1,23 +1,24 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using Microsoft.ApplicationInspector.Commands;
-using Microsoft.ApplicationInspector.RulesEngine;
-using Microsoft.CodeAnalysis.Sarif;
-using Microsoft.CST.OpenSource.Shared;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using static Microsoft.CST.OpenSource.Shared.OutputBuilderFactory;
 using SarifResult = Microsoft.CodeAnalysis.Sarif.Result;
 
 namespace Microsoft.CST.OpenSource
 {
+    using ApplicationInspector.Commands;
+    using ApplicationInspector.RulesEngine;
+    using CodeAnalysis.Sarif;
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
     using PackageManagers;
     using PackageUrl;
+    using Shared;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class CharacteristicTool : OSSGadget
     {
@@ -73,7 +74,7 @@ namespace Microsoft.CST.OpenSource
             public FailureLevel SarifLevel { get; set; } = FailureLevel.Note;
         }
 
-        public CharacteristicTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public CharacteristicTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

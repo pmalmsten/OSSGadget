@@ -1,30 +1,32 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using ICSharpCode.Decompiler;
-using ICSharpCode.Decompiler.CSharp;
-using Microsoft.CST.OpenSource.Shared;
-using PeNet;
-using SharpDisasm;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using WebAssembly; // Acquire from https://www.nuget.org/packages/WebAssembly
-using WebAssembly.Instructions;
-using Microsoft.ApplicationInspector.Commands;
+// Acquire from https://www.nuget.org/packages/WebAssembly
 using static Crayon.Output;
-using Microsoft.ApplicationInspector.RulesEngine;
-using Microsoft.CST.RecursiveExtractor;
 
 namespace Microsoft.CST.OpenSource
 {
+    using ApplicationInspector.Commands;
+    using ApplicationInspector.RulesEngine;
+    using Contracts;
     using Helpers;
-    using Microsoft.CST.OpenSource.PackageManagers;
+    using ICSharpCode.Decompiler;
+    using ICSharpCode.Decompiler.CSharp;
+    using PackageManagers;
     using PackageUrl;
+    using PeNet;
+    using RecursiveExtractor;
+    using Shared;
+    using SharpDisasm;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
+    using WebAssembly;
+    using WebAssembly.Instructions;
 
     public class DetectCryptographyTool : OSSGadget
     {
@@ -236,7 +238,7 @@ namespace Microsoft.CST.OpenSource
             }
         }
 
-        public DetectCryptographyTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public DetectCryptographyTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

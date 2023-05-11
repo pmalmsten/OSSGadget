@@ -3,11 +3,9 @@
 namespace Microsoft.CST.OpenSource.FindSquats
 {
     using Contracts;
+    using Exceptions;
     using ExtensionMethods;
-    using Microsoft.CST.OpenSource;
-    using Microsoft.CST.OpenSource.Exceptions;
-    using Microsoft.CST.OpenSource.Helpers;
-    using Microsoft.CST.OpenSource.PackageManagers;
+    using Helpers;
     using Mutators;
     using PackageUrl;
     using System.Collections.Generic;
@@ -22,7 +20,7 @@ namespace Microsoft.CST.OpenSource.FindSquats
 
         public IBaseProjectManager? ProjectManager { get;  }
 
-        public FindPackageSquats(ProjectManagerFactory projectManagerFactory, PackageURL packageUrl)
+        public FindPackageSquats(IProjectManagerFactory projectManagerFactory, PackageURL packageUrl)
             : base(projectManagerFactory)
         {
             PackageUrl = packageUrl;

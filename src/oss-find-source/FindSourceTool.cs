@@ -1,20 +1,21 @@
 ﻿// Copyright (c) Microsoft Corporation. Licensed under the MIT License.
 
-using CommandLine;
-using CommandLine.Text;
-using Microsoft.CodeAnalysis.Sarif;
-using Microsoft.CST.OpenSource.Shared;
-using NLog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static Microsoft.CST.OpenSource.Shared.OutputBuilderFactory;
 
 namespace Microsoft.CST.OpenSource
 {
+    using CodeAnalysis.Sarif;
+    using CommandLine;
+    using CommandLine.Text;
+    using Contracts;
+    using NLog;
     using PackageManagers;
     using PackageUrl;
+    using Shared;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class FindSourceTool : OSSGadget
     {
@@ -23,7 +24,7 @@ namespace Microsoft.CST.OpenSource
             "pkg:github/metacpan/metacpan-web"
         };
 
-        public FindSourceTool(ProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
+        public FindSourceTool(IProjectManagerFactory projectManagerFactory) : base(projectManagerFactory)
         {
         }
 

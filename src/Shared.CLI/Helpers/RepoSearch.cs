@@ -3,7 +3,7 @@
 namespace Microsoft.CST.OpenSource.Shared
 {
     using Contracts;
-    using Microsoft.CST.OpenSource.PackageManagers;
+    using PackageManagers;
     using PackageUrl;
     using System;
     using System.Collections.Generic;
@@ -30,12 +30,12 @@ namespace Microsoft.CST.OpenSource.Shared
         /// Initializes a new instance of the <see cref="RepoSearch"/> class.
         /// </summary>
         /// <param name="projectManagerFactory">The <see cref="ProjectManagerFactory"/> to generate the project managers with.</param>
-        public RepoSearch(ProjectManagerFactory projectManagerFactory)
+        public RepoSearch(IProjectManagerFactory projectManagerFactory)
         {
             _projectManagerFactory = projectManagerFactory;
         }
 
-        private ProjectManagerFactory _projectManagerFactory { get; }
+        private IProjectManagerFactory _projectManagerFactory { get; }
 
         /// <summary>
         ///     try to resolve the source code for an npm package through different means
